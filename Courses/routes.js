@@ -1,13 +1,17 @@
-import db from "../Database/index.js";
+// import db from "../Database/index.js";
+import * as dao from "./dao.js";
 
 export default function CourseRoutes(app) {
   // CRUD
-  const findAllCouses = (req, res) => {
-    res.json(db.courses);
+  const findAllCouses = async (req, res) => {
+    // res.json(db.courses);
+    const courses = await dao.findAllCourses();
+    res.json(courses);
   };
-  const findCourseById = (req, res) => {
+  const findCourseById = async (req, res) => {
     const id = req.params.id;
-    const course = db.courses.find((course) => course._id === id);
+    // const course = db.courses.find((course) => course._id === id);
+    const course = await dao.findCourseById(id);
     res.json(course);
   };
   const createCourse = (req, res) => {

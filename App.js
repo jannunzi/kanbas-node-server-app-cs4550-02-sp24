@@ -7,6 +7,7 @@ import cors from "cors";
 import session from "express-session";
 import SessionRoutes from "./SessionRoutes.js";
 import UsersRoutes from "./Users/routes.js";
+mongoose.connect("mongodb://localhost:27017/kanbas-sp24-wed");
 
 const app = express();
 app.use(

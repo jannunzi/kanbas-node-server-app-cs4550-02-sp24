@@ -7,6 +7,10 @@ import cors from "cors";
 import session from "express-session";
 import SessionRoutes from "./SessionRoutes.js";
 import UsersRoutes from "./Users/routes.js";
+import mongoose from "mongoose";
+import LikesRoutes from "./Likes/routes.js";
+import AlbumRoutes from "./Napster/albums/routes.js";
+
 mongoose.connect("mongodb://localhost:27017/kanbas-sp24-wed");
 
 const app = express();
@@ -31,5 +35,7 @@ Lab5(app);
 CourseRoutes(app);
 SessionRoutes(app);
 UsersRoutes(app);
+LikesRoutes(app);
+AlbumRoutes(app);
 
 app.listen(4000);
